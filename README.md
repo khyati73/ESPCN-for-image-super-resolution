@@ -7,6 +7,8 @@ Why ESPCN:
 4) The issue of using bicubic interpolation was dealt with by creating a model that adaptively increases the resolution. FSRCNN is the model that uses the technique of upsampling operation known as deconvolution or transposed convolution. 
 5) FSRCNN had its own problems. It used nearest neighbour interpolation in which there was a chance of points in upsampled features repeating several times. 
 6) This problem was dealt with by expanding the channels of the output features for storing the extra points to obtain the high resolution output through a specific mapping criterion.
+
+
 The general pipeline followed in conventional SR techniques begins with mapping the LR image to HR usually employing bicubic interpolation, and then learning the model in higher dimensional space.
 This pipeline has larger computational requirements, and hence ESPCN perform feature extraction in the LR space. After the features are extracted, ESPCN uses a sub-pixel convolution layer at the very end to aggregate LR feature maps and simultaneously perform projection to high dimensional space to reconstruct the HR image. Feature processing in LR space significantly reduces the memory and computational requirements. The bicubic interpolation used in SRCNN and nearest neighbour interpolation used in FSRCNN is replaced with the interpolation that pads the sub-pixels with zeroes.
 We have used a small dataset to train our model: BSDS500 dataset.
